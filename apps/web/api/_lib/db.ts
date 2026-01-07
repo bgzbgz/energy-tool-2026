@@ -6,15 +6,18 @@ import { createClient } from '@supabase/supabase-js';
  */
 export function createServerSupabaseClient() {
   const supabaseUrl = process.env.SUPABASE_URL || process.env.VITE_SUPABASE_URL;
-  const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
+  const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.VITE_SUPABASE_SERVICE_ROLE_KEY;
 
   if (!supabaseUrl || !supabaseServiceKey) {
+    // Log available env vars for debugging
+    console.error('Available Supabase env vars:', Object.keys(process.env).filter(k => k.includes('SUPA')));
     throw new Error('Missing Supabase environment variables: SUPABASE_URL and SUPABASE_SERVICE_ROLE_KEY are required');
   }
 
   return createClient(supabaseUrl, supabaseServiceKey, {
     auth: {
       persistSession: false,
+      autoRefreshToken: false,
     },
   });
 }
