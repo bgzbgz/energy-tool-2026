@@ -1,4 +1,4 @@
-import type { EnergySubmission } from '@/domain/entities/EnergySubmission';
+import { EnergySubmission } from '@/domain/entities/EnergySubmission';
 import type { SubmissionRepository } from '../ports/SubmissionRepository';
 import type { EnergyToolData } from '@/lib/validation-schemas';
 
