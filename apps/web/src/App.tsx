@@ -9,6 +9,7 @@ import { ProtocolStrengthAnalyzer } from './presentation/pages/IndividualTool/Pr
 import { Canvas } from './presentation/pages/IndividualTool/Canvas';
 import { GuruDashboard } from './presentation/pages/GuruDashboard';
 import { TeamMeetingTool } from './presentation/pages/TeamMeetingTool';
+import { DiagnosticPage } from './presentation/pages/DiagnosticPage';
 
 // Create QueryClient
 const queryClient = new QueryClient({
@@ -34,6 +35,7 @@ function App() {
           <Route path="/canvas" element={<Canvas />} />
           <Route path="/guru" element={<GuruDashboard />} />
           <Route path="/team" element={<TeamMeetingTool />} />
+          <Route path="/diagnostic" element={<DiagnosticPage />} />
         </Routes>
       </BrowserRouter>
     </QueryClientProvider>

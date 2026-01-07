@@ -4,6 +4,7 @@ import path from 'path';
 
 export default defineConfig({
   plugins: [react()],
+  publicDir: 'public',
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),
@@ -24,6 +25,7 @@ export default defineConfig({
   },
   build: {
     sourcemap: true,
+    assetsInlineLimit: 0, // Don't inline assets, keep them as files
   },
 });
 
